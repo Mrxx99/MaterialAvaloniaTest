@@ -11,7 +11,8 @@ public class MainWindowViewModel : ViewModelBase
 
     public bool IsDark
     {
-        get => App.Current.RequestedThemeVariant == ThemeVariant.Dark;
+        get => App.Current.LocateMaterialTheme<MaterialThemeBase>().CurrentTheme.GetBaseThemeMode() ==
+               BaseThemeMode.Dark;
         set
         {
             if (value)
