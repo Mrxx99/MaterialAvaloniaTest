@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MatrialAvaloniaTest.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        x:Class="MatrialAvaloniaTest.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Loaded="Control_OnLoaded"
+        Title="MatrialAvaloniaTest">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+                         <!-- Background="{DynamicResource MaterialCardBackgroundBrush}" -->
+     <StackPanel Spacing="5">
+         <Grid Background="{DynamicResource MaterialDarkBackgroundBrush}"
+               VerticalAlignment="Top">
+             <materialDesign:Card Height="75" Width="200">
+                 <TextBox VerticalAlignment="Center" />
+             </materialDesign:Card>
+         </Grid>
+         <ToggleSwitch IsChecked="{Binding IsDark}" OnContent="Light" OffContent="Dark">Dark Mode</ToggleSwitch>
+         <TextBox Text="hi"/>
+         <Button>hi</Button>
+         <Button Theme="{StaticResource MaterialOutlineButton}">bye</Button>
+         <ComboBox PlaceholderText="Select a Item">
+             <TextBlock Text="Item 1" />
+             <TextBlock Text="Item 2" />
+             <TextBlock Text="Item 3" />
+             <TextBlock Text="Item 4" />
+         </ComboBox>
+         <Border Background="{DynamicResource MaterialPrimaryMidBrush}" Height="20" BorderBrush="Blue" BorderThickness="1"></Border>
+         <Border Background="{DynamicResource MaterialSecondaryMidBrush}" Height="20" BorderBrush="Blue" BorderThickness="1"></Border>
+         <Border Background="{DynamicResource MaterialTextBoxBorderBrush}" Height="20" BorderBrush="Blue" BorderThickness="1"></Border>
+
+     </StackPanel>
+</Window>
